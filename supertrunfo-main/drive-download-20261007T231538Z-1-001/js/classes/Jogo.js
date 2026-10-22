@@ -34,9 +34,16 @@ class Jogo {
   // Dica: use o método do TODO 3 → minhaCarta.valorDe(atributo)
   // Conteúdo: if / else if / else (Semana 2)
   // ------------------------------------------------------------
-  comparar(minhaCarta, cartaAdversaria, atributo) {
-    // escreva seu código aqui
+  comparar(minhaCarta, cartaAdversaria, atributo) { 
+    if(minhaCarta.valorDe(atributo) > cartaAdversaria.valorDe(atributo)) {
+      return 'vitoria' }
+    else if (minhaCarta.valorDe(atributo) < cartaAdversaria.valorDe(atributo)) {
+      return 'derrota' 
+    } else {
+      return 'empate' 
+      }
   }
+  
 
   // ------------------------------------------------------------
   // TODO 11 — melhorAtributo(carta)
@@ -47,13 +54,24 @@ class Jogo {
   //          e poder 84 → retorna 'velocidade'
   //
   // Dica: percorra o array ATRIBUTOS (que já existe, em dados.js):
-  //       ['forca', 'velocidade', 'inteligencia', 'poder']
+  //       ['forca', 'velocidade', 'inteligencia', 'poder']0
   //       É o mesmo raciocínio do encontrarMaior() da Semana 3.
   //       Em caso de empate, fique com o primeiro que apareceu.
   // Conteúdo: for...of + if (Semana 3)
   // ------------------------------------------------------------
   melhorAtributo(carta) {
-    // escreva seu código aqui
+    let maiorValor = -1;
+    let melhorAtributoNome = '';
+    for (const atributo of ATRIBUTOS) {
+      const valorAtual = carta[atributo]
+      
+      if (valorAtual > maiorValor) {
+        maiorValor = valorAtual;
+        melhorAtributoNome = atributo;
+      }
+    }
+
+    return melhorAtributoNome;
   }
 
   // ============================================================
